@@ -1,0 +1,59 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav mode="push">
+
+    <mat-toolbar color="primary">
+      <span>Menú</span>
+      <span class="spacer"></span>
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a routerLink="./" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Detalle facturación</span>
+      </a>
+
+      <a routerLink="./invoice" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Factura</span>
+      </a>
+
+      <a routerLink="./product" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Productos</span>
+      </a>
+
+      <a routerLink="./user" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>label</mat-icon>
+        <span>Usarios</span>
+      </a>
+
+      <!-- <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+        <mat-icon mat-list-icon>search</mat-icon>
+        <span>Buscar heroe</span>
+      </a> -->
+
+    </mat-nav-list>
+
+  </mat-sidenav>
+
+  <mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="spacer"></span>
+    <span>Edier</span>
+    <button mat-button (click)="logout()">
+      Logout
+    </button>
+  </mat-toolbar>
+
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-sidenav-container>

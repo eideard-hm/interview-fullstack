@@ -1,0 +1,58 @@
+<h1>{{ title }} factura
+  <mat-divider></mat-divider>
+<br>
+
+  <div fxLayout="row"
+       fxLayout.xs="column"
+       fxLayoutGap="40px"
+       fxLayoutAlign="center center"
+       style="font-size: 16px;">
+    <div fxFlex="70" fxLayout="column">
+      <mat-form-field fxFlex="100">
+        <mat-label>Número de factura</mat-label>
+        <input matInput
+               type="number"
+               placeholder="Número de factura"
+               [(ngModel)]="invoice.invoiceNumber"
+               required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Concepto</mat-label>
+        <textarea matInput placeholder="Concepto de la factura" [(ngModel)]="invoice.concept" required>
+      </textarea>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Fecha</mat-label>
+        <input matInput type="datetime-local" [(ngModel)]="invoice.invoiceDate" required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Producto</mat-label>
+        <mat-select [(ngModel)]="this.invoice.invoiceDetails[0].productId" required>
+          <mat-option *ngFor="let product of products" [value]="product.productId">
+            {{ product.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Cantidad</mat-label>
+        <input matInput
+               type="number"
+               placeholder="Cantidad vendida"
+               [(ngModel)]="this.invoice.invoiceDetails[0].quantitySold"
+               required>
+      </mat-form-field>
+
+      <div fxLayout>
+        <button mat-raised-button color="primary" (click)="save()">
+          <mat-icon>save</mat-icon>
+          Guardar
+        </button>
+      </div>
+
+    </div>
+
+  </div>

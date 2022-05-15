@@ -1,0 +1,16 @@
+<h1>¿Estas seguro?</h1>
+<hr>
+
+<p>
+  Está a punto de anular la factura {{ data.invoiceId }}.
+  <br>
+  ¿Desea continuar?
+</p>
+
+<button mat-button (click)="borrar()" color="warn">
+  Si, anular
+</button>
+
+<button mat-button (click)="cerrar()">
+  Cancelar
+</button>

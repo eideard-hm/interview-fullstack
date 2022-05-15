@@ -1,0 +1,82 @@
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <h1>Lista de facturas</h1>
+  <button mat-mini-fab color="accent" aria-label="Editar factura" routerLink="add">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<mat-divider></mat-divider>
+<br>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- ID Factura Column -->
+    <ng-container matColumnDef="invoiceId">
+      <th mat-header-cell *matHeaderCellDef> ID Factura </th>
+      <td mat-cell *matCellDef="let element"> {{element.invoiceId}} </td>
+    </ng-container>
+
+    <!-- N° Factura Column -->
+    <ng-container matColumnDef="invoiceNumber">
+      <th mat-header-cell *matHeaderCellDef> N° Factura</th>
+      <td mat-cell *matCellDef="let element"> {{element.invoiceNumber }} </td>
+    </ng-container>
+
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="invoiceDate">
+      <th mat-header-cell *matHeaderCellDef> Fecha </th>
+      <td mat-cell *matCellDef="let element"> {{element.invoiceDate | date}} </td>
+    </ng-container>
+
+    <!-- Concepto Column -->
+    <ng-container matColumnDef="concept">
+      <th mat-header-cell *matHeaderCellDef> Concepto </th>
+      <td mat-cell *matCellDef="let element"> {{element.concept}} </td>
+    </ng-container>
+
+    <!-- Subtotal Column -->
+    <ng-container matColumnDef="subtotal">
+      <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+      <td mat-cell *matCellDef="let element">$ {{element.subtotal | number}} </td>
+    </ng-container>
+
+    <!-- Impuesto Column -->
+    <ng-container matColumnDef="tax">
+      <th mat-header-cell *matHeaderCellDef> Impuesto </th>
+      <td mat-cell *matCellDef="let element">$ {{element.tax  | number}} </td>
+    </ng-container>
+
+    <!-- Total Column -->
+    <ng-container matColumnDef="total">
+      <th mat-header-cell *matHeaderCellDef> Total </th>
+      <td mat-cell *matCellDef="let element">$ {{element.total | number}} </td>
+    </ng-container>
+
+    <!-- Anulado Column -->
+    <ng-container matColumnDef="anulado">
+      <th mat-header-cell *matHeaderCellDef> Anulado </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-stroked-button color="{{ element.anulado ? 'warn' : 'accent'}}">
+          {{element.anulado ? 'Anulada' : 'Vigente'}}
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <div fxLayout="row" fxLayoutGap="10px">
+          <button mat-mini-fab color="warn" aria-label="Anular la factura" (click)="anularInvoice(element)">
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
