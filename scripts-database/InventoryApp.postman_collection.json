@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "3a1a3137-7b00-4853-86b6-ac016614b91e",
+		"name": "InventoryApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product/GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/Product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product/GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/Product/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Product",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product/Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Teléfono Samsung A02 Pro con Protectir\",\r\n    \"description\": \"Buen teléfono gama media y aguanta golpes\",\r\n    \"cost\": 200000,\r\n    \"price\": 350000,\r\n    \"stock\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7089/api/Product",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product/Edit",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productId\": 8,\r\n    \"name\": \"Teléfono Samsung A02 Pro con Protector\",\r\n    \"description\": \"Buen teléfono gama media y aguanta golpes\",\r\n    \"cost\": 200000,\r\n    \"price\": 350000,\r\n    \"stock\": 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7089/api/Product/8",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Product",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Product/Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/Product/7",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Product",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice/GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/Invoice",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice/GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/Invoice/14",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Invoice",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice/Save",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"InvoiceNumber\": 7,\r\n    \"Concept\": \"Venta de un repuesto para el computador de Edier\",\r\n    \"userId\": 1,\r\n    \"InvoiceDetails\": [\r\n        {\r\n            \"productId\": 5,\r\n            \"quantitySold\": 3\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7089/api/Invoice",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice/Anular",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/Invoice/14",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"Invoice",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/GetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/User",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/User/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"User",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/Add",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullName\": \"Yesenia Rodriguez\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"1032547885\",\r\n    \"age\": 19\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7089/api/User",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"User"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 6,\r\n    \"fullName\": \"Yesenia Rodriguez Florez\",\r\n    \"documentType\": \"CC\",\r\n    \"documentNumber\": \"1032547885\",\r\n    \"age\": 18\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7089/api/User/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"User",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User/Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7089/api/User/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7089",
+					"path": [
+						"api",
+						"User",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
