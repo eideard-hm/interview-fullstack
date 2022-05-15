@@ -1,1 +1,66 @@
-<p>add-edit works!</p>
+<h1>{{ title }} producto
+  <mat-divider></mat-divider>
+<br>
+
+  <div fxLayout="row"
+       fxLayout.xs="column"
+       fxLayoutGap="40px"
+       fxLayoutAlign="center center"
+       style="font-size: 16px;">
+    <div fxFlex="70" fxLayout="column">
+      <mat-form-field fxFlex="100">
+        <mat-label>Name</mat-label>
+        <input matInput
+               type="text"
+               placeholder="Nombre del producto"
+               [(ngModel)]="product.name"
+               required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput
+                  placeholder="Descripción del producto"
+                  [(ngModel)]="product.description"
+                  required>
+      </textarea>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Costo</mat-label>
+        <input matInput
+               type="number"
+               placeholder="Costo del producto"
+               [(ngModel)]="product.cost"
+               required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Price</mat-label>
+        <input matInput
+               type="number"
+               placeholder="Precio del producto"
+               [(ngModel)]="product.price"
+               required>
+      </mat-form-field>
+
+      <mat-form-field fxFlex="100">
+        <mat-label>Stock</mat-label>
+        <input matInput
+               type="number"
+               placeholder="Stock de productos"
+               [(ngModel)]="product.stock"
+               required>
+      </mat-form-field>
+
+      <div fxLayout>
+        <button mat-raised-button color="primary" (click)="save()">
+          <mat-icon>save</mat-icon>
+          Guardar
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+

@@ -42,20 +42,23 @@ namespace Inventory.RestApi.Controllers
         {
             var service = CreateService();
             service.Add(product);
-            return Ok("El producto se ha guardado correctamente!");
+            return Ok(new { message = "El producto se ha guardado correctamente!" });
         }
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
         public ActionResult Put(int id, Product product)
         {
-            if(id != product.ProductId)
+            if (id != product.ProductId)
             {
-               return BadRequest("Los ids del producto no coinciden.");
+                return BadRequest("Los ids del producto no coinciden.");
             }
             var service = CreateService();
             service.Edit(product);
-            return Ok("Producto modificado correctamente");
+            return Ok(new
+            {
+                message = "Producto modificado correctamente"
+            });
         }
 
         // DELETE api/<ProductController>/5
@@ -64,7 +67,10 @@ namespace Inventory.RestApi.Controllers
         {
             var service = CreateService();
             service.Delete(id);
-            return Ok("Producto eliminado correctamente!");
+            return Ok(new
+            {
+                message = "Producto eliminado correctamente!"
+            });
         }
     }
 }

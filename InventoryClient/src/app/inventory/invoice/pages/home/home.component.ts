@@ -45,7 +45,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
   anularInvoice (invoice: Invoice) {
     if (!invoice.anulado) {
       const dialog = this.dialog.open(ConfirmComponent, {
-        width: '250px',
+        width: '400px',
         data: { ...invoice }
       })
 
