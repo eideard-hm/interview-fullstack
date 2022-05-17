@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Detalle de factura</h2>
+
+<mat-dialog-content class="mat-typography">
+
+  <mat-grid-list cols="2" rowHeight="7:1">
+
+    <mat-grid-tile>ID Producto</mat-grid-tile>
+    <mat-grid-tile>{{ product.productId }}</mat-grid-tile>
+
+    <mat-grid-tile>Nombre</mat-grid-tile>
+    <mat-grid-tile>{{ product.name }}</mat-grid-tile>
+
+    <mat-grid-tile>Descripción</mat-grid-tile>
+    <mat-grid-tile>{{ product.description }}</mat-grid-tile>
+
+    <mat-grid-tile>Costo</mat-grid-tile>
+    <mat-grid-tile>$ {{ product.cost | number }}</mat-grid-tile>
+
+    <mat-grid-tile>Precio</mat-grid-tile>
+    <mat-grid-tile>$ {{ product.price | number }}</mat-grid-tile>
+
+    <mat-grid-tile>Stock</mat-grid-tile>
+    <mat-grid-tile>{{ product.stock | number }}</mat-grid-tile>
+  </mat-grid-list>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close cdkFocusInitial color="warm">
+    Cerrar
+  </button>
+</mat-dialog-actions>

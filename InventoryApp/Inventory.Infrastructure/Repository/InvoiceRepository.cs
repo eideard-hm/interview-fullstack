@@ -31,7 +31,11 @@ namespace Inventory.Infrastructure.Repository
 
         public List<Invoice> GetAll()
         {
-            return _db.Invoices.AsNoTracking().ToList();
+            return _db.Invoices
+                               .Include(i => i.InvoiceDetails)
+                               .ThenInclude(id => id.Product)
+                               .AsNoTracking()
+                               .ToList();
         }
 
         public Invoice GetById(int id)

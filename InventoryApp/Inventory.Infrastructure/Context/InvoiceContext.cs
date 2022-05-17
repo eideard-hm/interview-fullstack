@@ -13,7 +13,7 @@ namespace Inventory.Infrastructure.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Server=DESKTOP-79UO4HN\SQLEXPRESS;Database=InventoryDB;User Id=Developer;Password=123456789");
+            options.UseSqlServer(@"Server=DESKTOP-79UO4HN\SQLEXPRESS;Database=InvoiceDB;User Id=Developer;Password=123456789");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

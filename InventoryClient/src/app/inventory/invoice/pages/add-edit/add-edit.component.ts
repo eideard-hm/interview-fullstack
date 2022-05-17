@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core'
-import { InvoiceService } from '../../services/invoice.service'
-import { environment } from 'src/environments/environment'
-import { ProductService } from '../../../product/services/product.service'
 import { Router } from '@angular/router'
-import { Product } from '../../../product/interfaces/product.interfaces'
+
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { environment } from 'src/environments/environment'
+
+import { InvoiceService } from '../../services/invoice.service'
+import { ProductService } from '../../../product/services/product.service'
+import { Product } from '../../../product/interfaces/product.interfaces'
 import { Invoice } from '../../interfaces/invoice.interfaces'
 
 @Component({
@@ -23,7 +25,7 @@ export class AddEditComponent implements OnInit {
     concept: '',
     invoiceDetails: [
       {
-        productId: 0,
+        productId!: 0,
         quantitySold: 0
       }
     ],
@@ -46,7 +48,7 @@ export class AddEditComponent implements OnInit {
       this.invoice.invoiceNumber <= 0 ||
       this.invoice.invoiceDate === '' ||
       this.invoice.concept.length <= 3 ||
-      this.invoice.invoiceDetails[0].productId <= 0
+      this.invoice.invoiceDetails[0]!.productId <= 0
     ) {
       this.showSnackBar('Todos los campos son obligatorios!')
       return

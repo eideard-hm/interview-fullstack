@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { switchMap } from 'rxjs'
 import { ProductService } from '../../services/product.service'
 import { Product } from '../../interfaces/product.interfaces'
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-add-edit',
@@ -25,16 +26,19 @@ export class AddEditComponent implements OnInit {
     private readonly activedRoute: ActivatedRoute,
     private readonly router: Router,
     private readonly _productService: ProductService,
-    private readonly snackBar: MatSnackBar
+    private readonly snackBar: MatSnackBar,
+    private readonly _title: Title
   ) {}
 
   ngOnInit (): void {
     if (this.router.url.includes('edit')) {
       this.title = 'Editar'
+      this._title.setTitle(`${this.title} Producto | Inventory`)
       this.activedRoute.params
         .pipe(switchMap(({ id }) => this._productService.getProductById(id)))
         .subscribe(product => (this.product = product))
     }
+    this._title.setTitle(`${this.title} Producto | Inventory`)
   }
 
   save () {

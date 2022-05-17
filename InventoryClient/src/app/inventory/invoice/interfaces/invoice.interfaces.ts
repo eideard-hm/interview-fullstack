@@ -16,5 +16,6 @@ export interface Invoice {
 
 export interface InvoiceDetails {
   productId: number,
-  quantitySold: number
+  quantitySold: number,
+  product?: []
 }

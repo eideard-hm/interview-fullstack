@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { AddEditComponent } from './pages/add-edit/add-edit.component'
 import { MaterialModule } from '../../material/material.module';
 import { ConfirmComponent } from './components/confirm/confirm.component';
+import { InventoryModule } from '../inventory.module';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
     ConfirmComponent
   ],
   imports: [CommonModule, ProductRoutingModule, MaterialModule,
-  FormsModule]
+  FormsModule, InventoryModule]
 })
 export class ProductModule {}

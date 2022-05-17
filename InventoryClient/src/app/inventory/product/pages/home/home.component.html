@@ -1,5 +1,10 @@
-<div fxLayout="row" fxLayoutAlign="space-around">
+<div fxLayout="row" fxLayoutAlign="space-between">
   <h1>Lista de productos</h1>
+
+  <app-input-search (onDebounce)="sugerencia($event)"
+                    placeholder="Buscar producto..." >
+  </app-input-search>
+
   <button mat-mini-fab
           color="accent"
           aria-label="Agregar producto"

@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core'
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 import { MatPaginator } from '@angular/material/paginator'
 import { MatTableDataSource } from '@angular/material/table'
@@ -14,13 +15,17 @@ import { MatTableDataSource } from '@angular/material/table'
     `
   ]
 })
-export class HomeComponent implements AfterViewInit {
+export class HomeComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol']
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA)
 
   @ViewChild(MatPaginator) paginator!: MatPaginator
 
-  constructor () {}
+  constructor (private readonly title: Title) {}
+
+  ngOnInit(): void {
+    this.title.setTitle('Detalle factura | Inventory')
+  }
 
   ngAfterViewInit (): void {
     this.dataSource.paginator = this.paginator

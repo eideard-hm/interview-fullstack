@@ -30,7 +30,7 @@
 
       <mat-form-field fxFlex="100">
         <mat-label>Producto</mat-label>
-        <mat-select [(ngModel)]="this.invoice.invoiceDetails[0].productId" required>
+        <mat-select [(ngModel)]="this.invoice.invoiceDetails[0]!.productId" required>
           <mat-option *ngFor="let product of products" [value]="product.productId">
             {{ product.name }}
           </mat-option>

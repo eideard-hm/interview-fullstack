@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar'
 import { Router } from '@angular/router'
 import { MatDialog } from '@angular/material/dialog'
 import { ConfirmComponent } from '../../components/confirm/confirm.component';
+import { Title } from '@angular/platform-browser'
+import { ModalComponent } from '../../components/modal/modal.component';
 
 @Component({
   selector: 'app-home',
@@ -31,10 +33,12 @@ export class HomeComponent implements AfterViewInit, OnInit {
     private readonly _invoiceService: InvoiceService,
     private readonly snackBar: MatSnackBar,
     private readonly router: Router,
-    private readonly dialog: MatDialog
+    private readonly dialog: MatDialog,
+    private readonly title: Title
   ) {}
 
   ngOnInit (): void {
+    this.title.setTitle('Facturas | Inventory');
     this.loadData(true)
   }
 
@@ -77,6 +81,17 @@ export class HomeComponent implements AfterViewInit, OnInit {
         }
       })
     }
+  }
+
+  seeDetail(invoice: Invoice){
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '800px',
+       data: {...invoice},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
   showSnackBar (msj: string) {

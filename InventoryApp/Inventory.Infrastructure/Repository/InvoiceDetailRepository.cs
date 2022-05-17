@@ -22,9 +22,9 @@ namespace Inventory.Infrastructure.Repository
         public List<InvoiceDetail> GetAll()
         {
             return _db.InvoicesDetails
+                                      .Include(detail => detail.Invoice)
+                                      .Include(detail => detail.Product)
                                       .AsNoTracking()
-                                      .Include(id => id.Invoice)
-                                      .Include(id => id.Product)
                                       .ToList();
         }
 
@@ -32,8 +32,9 @@ namespace Inventory.Infrastructure.Repository
         {
             return _db.InvoicesDetails
                                       .AsNoTracking()
-                                      .Include(id => id.InvoiceId)
-                                      .FirstOrDefault();
+                                      .Include(detail => detail.Invoice)
+                                      .Include(detail => detail.Product)
+                                      .FirstOrDefault(detail => detail.InvoiceId == id && detail.ProductId == id);
         }
 
         public void SaveAllChanges()
